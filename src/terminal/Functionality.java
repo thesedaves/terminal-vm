@@ -1,10 +1,16 @@
 package terminal;
 
+import terminal.commands.*;
+
 public class Functionality {
-    public boolean checkInput(String input) {
-        
-        
-        
-        return false;
+
+    private static String removeCmdPrefix(String input) {
+        input = input.substring(input.indexOf(" "), input.length()).strip();
+        return input;
     }
+    private static Command getCommand(String input) {
+        Commands cmds = new Commands();
+        return cmds.getCommand(input);
+    }
+    public 
 }
