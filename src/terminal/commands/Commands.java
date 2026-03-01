@@ -12,6 +12,9 @@ public final class Commands {
     public static final Command ls = new Command("ls",(String argument) -> {
 
     });
+    public static final Command cd = new Command("cd",(String path) -> {
+
+    });
 
     public Commands() {
         loadCommands();
@@ -20,6 +23,7 @@ public final class Commands {
     public void loadCommands() {
         commandList.add(echo);
         commandList.add(ls);
+        commandList.add(cd);
     }
 
     public Command getCommand(String input) {
