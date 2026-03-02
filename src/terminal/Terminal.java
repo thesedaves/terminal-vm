@@ -4,8 +4,8 @@ import java.util.Scanner;
 import terminal.commands.*;
 
 public class Terminal {
-    private String shellPrefix = "";
-    private String shellSymbol = "~";
+    private static String shellPrefix = "";
+    private static String shellSymbol = "~";
     private final Scanner scanner = new Scanner(System.in);
 
     public Terminal() {}
@@ -17,18 +17,21 @@ public class Terminal {
             if (input == null) {
                 continue;
             } 
-            Command inputCommand = Functionality.getCommand(input);
-            if (inputCommand != null) {
+            try {
+                Command inputCommand = Functionality.getCommand(input);
+                if (inputCommand != null) {
                 inputCommand.doYourStuff(Functionality.removeCmdPrefix(input));
-            }
+                }
+            } catch (Exception e){}
         }
     }
 
-    public void setShellPrefix(String prefix) {
-        this.shellPrefix = prefix;
+
+    public static void setShellPrefix(String prefix) {
+        shellPrefix = prefix;
     }
 
-    public void setShellSymbol(String symbol) {
-        this.shellSymbol = symbol;
+    public static void setShellSymbol(String symbol) {
+        shellSymbol = symbol;
     }
 }

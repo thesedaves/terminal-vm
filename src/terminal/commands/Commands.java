@@ -1,6 +1,7 @@
 package terminal.commands;
 
 import java.util.ArrayList;
+import terminal.*;
 
 public final class Commands {
 
@@ -15,6 +16,9 @@ public final class Commands {
     public static final Command cd = new Command("cd",(String path) -> {
 
     });
+    public static final Command setshellsymbol = new Command("setshellsymbol",(String symbol) -> { 
+        Terminal.setShellSymbol(symbol);
+    });
 
     public Commands() {
         loadCommands();
@@ -24,6 +28,7 @@ public final class Commands {
         commandList.add(echo);
         commandList.add(ls);
         commandList.add(cd);
+        commandList.add(setshellsymbol);
     }
 
     public Command getCommand(String input) {
