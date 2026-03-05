@@ -7,18 +7,23 @@ public final class Commands {
 
     public ArrayList<Command> commandList = new ArrayList<>();
 
+
+    // Command implementation
     public static final Command echo = new Command("echo",(String text) -> {
         System.out.println(text);
     });
+    public static final Command shell = new Command("shell",(String symbol) -> { 
+        Terminal.setShellSymbol(symbol);
+    });
+
+    // Filesystem Commands not implemented yet
     public static final Command ls = new Command("ls",(String argument) -> {
 
     });
     public static final Command cd = new Command("cd",(String path) -> {
 
     });
-    public static final Command setshellsymbol = new Command("setshellsymbol",(String symbol) -> { 
-        Terminal.setShellSymbol(symbol);
-    });
+
 
     public Commands() {
         loadCommands();
@@ -26,9 +31,9 @@ public final class Commands {
 
     public void loadCommands() {
         commandList.add(echo);
+        commandList.add(shell);
         commandList.add(ls);
         commandList.add(cd);
-        commandList.add(setshellsymbol);
     }
 
     public Command getCommand(String input) {
